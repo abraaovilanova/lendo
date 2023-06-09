@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/lendo/static/css/main.01d4848e.css",
+    "main.js": "/lendo/static/js/main.a23e36a8.js",
+    "index.html": "/lendo/index.html",
+    "main.01d4848e.css.map": "/lendo/static/css/main.01d4848e.css.map",
+    "main.a23e36a8.js.map": "/lendo/static/js/main.a23e36a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.01d4848e.css",
+    "static/js/main.a23e36a8.js"
+  ]
+}
