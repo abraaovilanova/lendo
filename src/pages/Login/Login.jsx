@@ -1,38 +1,27 @@
 import { useState } from "react"
-import { db } from '../../firebase'
-import { collection, query, where, getDocs } from "firebase/firestore";
 
-function Login(){
-    const [user, setUser ] = useState("admin")
-    const [password, setPassword] = useState("admin")
+import { useUsers } from '../../providers/UserProvider'
 
-    async function hadleLogin(event){
-        console.log(user, password)
+import './Login.css'
 
-        //const querySnapshot =  await getDocs(textCollectionRef)
-        const citiesRef = collection(db, "users");
+function Login() {
 
-        // Create a query against the collection.
-        const q = query(citiesRef, where("user", "==", "admin"));
-        const querySnapshot = await getDocs(q);
+    const [name, setName] = useState("")
+    const { user, setUserName } = useUsers()
 
-        querySnapshot.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.id, " => ", doc.data());
-          });
+    function handleOnChange(e) {
+        setName(e.target.value)
     }
 
     return (
-        <div>
-            <div>
-                <label>user</label>
-                <input value={user} onChange={(e) => setUser(e.target.value)} type="text" />
-            </div>
-            <div>
-                <label>password</label>
-                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" />
-            </div>
-            <button onClick={(event) => hadleLogin(event)}>Login</button>
+        <div className="login">
+            <label>Qual é o seu nome?</label>
+            <input 
+                className="name-input"
+                value={name} 
+                onChange={handleOnChange} 
+                type="text" />
+            <button className="continue-btn" onClick={() => setUserName(name)}>Continuar</button>
         </div>
     )
 }
