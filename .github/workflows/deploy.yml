@@ -17,8 +17,8 @@ jobs:
 
       - name: Set Git identity
         run: |
-          git config user.email "abraaovilanova@gmail.com"
-          git config user.name "Abraão Vila Nova"
+          git config --global user.email "abraaovilanova@gmail.com"
+          git config --global user.name "Abraão Vila Nova"
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
