@@ -1,11 +1,9 @@
-name: deploy-react-gh-pages
+name: Deploy to GitHub Pages
+
 on:
   push:
     branches:
       - main
-
-env:
-  CI: false
 
 jobs:
   build-deploy:
@@ -15,31 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Verify authentication credentials
-        env:
-          ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ -z "$ACCESS_TOKEN" ]; then
-            echo "Error: GitHub access token is not provided."
-            exit 1
-          fi
-
-
-      - name: Set Git identity
-        run: |
-          git config --global user.email "abraaovilanova@gmail.com"
-          git config --global user.name "Abraão Vila Nova"
-
-      - name: Print repository URL
-        run: echo "Repository URL - https://github.com/${{ github.repository }}.git"
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: deploy
-        run: npm run deploy
+      - name: Build
+        run: npm run build
 
-
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
