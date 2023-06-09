@@ -14,16 +14,16 @@ export function levenshteinDistance(a, b) {
     }
 
     // Fill in the rest of the matrix
-    for (var i = 1; i <= b.length; i++) {
-        for (var j = 1; j <= a.length; j++) {
-            if (b.charAt(i - 1) == a.charAt(j - 1)) {
-                matrix[i][j] = matrix[i - 1][j - 1];
+    for (var k = 1; k <= b.length; k++) {
+        for (var l = 1; l <= a.length; l++) {
+            if (b.charAt(k - 1) === a.charAt(j - 1)) {
+                matrix[k][l] = matrix[k - 1][l - 1];
             } else {
-                matrix[i][j] = Math.min(
-                    matrix[i - 1][j - 1] + 1, // substitution
+                matrix[k][l] = Math.min(
+                    matrix[k - 1][l - 1] + 1, // substitution
                     Math.min(
-                        matrix[i][j - 1] + 1, // insertion
-                        matrix[i - 1][j] + 1 // deletion
+                        matrix[k][l - 1] + 1, // insertion
+                        matrix[k - 1][l] + 1 // deletion
                     )
                 );
             }

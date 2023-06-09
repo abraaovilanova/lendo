@@ -20,7 +20,7 @@ export function UserProvider({ children }) {
     }
 
     function addReadText(textId, index, correctAnswers, textLength){
-        const newreadTexts = user.readTexts.filter(elem => elem.textId != textId)
+        const newreadTexts = user.readTexts.filter(elem => elem.textId !== textId)
         setUser(prev => ({...prev, readTexts: [...newreadTexts, {textId, index, correctAnswers, textLength}]}))
     }
 
