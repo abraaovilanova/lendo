@@ -76,13 +76,16 @@ function Display() {
         const transcript = await renderSpeech();
         setTranscript(transcript);
         const score = similarityCheck(textStatus.phrases[textStatus.index], transcript)
+        
         setScore(similarityCheck(textStatus.phrases[textStatus.index], transcript))
+        console.log(score)
         if(score < 75){
             setHearts(prev => prev - 1)
         }
     }
 
     function ButtonGroup() {
+        console.log(score)
         if (score < 75 & hearts > 0) {
             return (
                 <>
