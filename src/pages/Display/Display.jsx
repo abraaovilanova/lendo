@@ -48,17 +48,6 @@ function Display() {
 
     }, [])
 
-    function handlerClickNext($event) {
-
-        if (textStatus.index < textStatus.phrases.length - 1) {
-            setTextStatus(prev => ({ ...prev, index: prev.index + 1 }))
-        } else {
-            addReadText(textId, textStatus.index, textStatus.correctAnswers, textStatus.phrases.length)
-            navigate("/fr/123/result", { state: textStatus })
-        }
-        setScore(0)
-        setTranscript("")
-    }
 
 
     function handleClickContinue($event) {
@@ -66,7 +55,7 @@ function Display() {
             setTextStatus(prev => ({ ...prev, index: prev.index + 1, correctAnswers: prev.correctAnswers + 1 }))
         } else {
             addReadText(textId, textStatus.index, textStatus.correctAnswers + 1, textStatus.phrases.length)
-            navigate("/fr/123/result", { state: textStatus })
+            navigate("/fr/result", { state: textStatus })
         }
         setScore(0)
         setTranscript("")
@@ -78,14 +67,13 @@ function Display() {
         const score = similarityCheck(textStatus.phrases[textStatus.index], transcript)
         
         setScore(similarityCheck(textStatus.phrases[textStatus.index], transcript))
-        console.log(score)
         if(score < 75){
             setHearts(prev => prev - 1)
         }
+        console.log('aqui fim')
     }
 
     function ButtonGroup() {
-        console.log(score)
         if (score < 75 & hearts > 0) {
             return (
                 <>
@@ -135,13 +123,14 @@ function Display() {
                 <div><FaHeart color="#fe6384" /> {hearts}</div>
             </div>
 
-            <div>
+            <div className="text-display">
                 <p>
                     <button 
                         className="secundary-btn"
                         onClick={() => handleListening(textStatus.phrases[textStatus.index])}
+                        style={{marginRight: '6px'}}
                     >
-                        <FaVolumeUp color="#32a0eb" />
+                        <FaVolumeUp color="#32a0eb" style={{ width:  '100%', height: '100%'}}/>
                     </button>
                     <DisplayTranscript transcript={transcript} text={textStatus.phrases[textStatus.index]} />
                 </p>

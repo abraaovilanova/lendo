@@ -17,6 +17,7 @@ import './Home.css'
 
 // COMPONENTS
 import Card from '../../components/Card'
+import CardList from '../../components/CardList';
 
 function Home() {
     const [texts, setTexts] = useState([])
@@ -36,15 +37,16 @@ function Home() {
             setTexts(texts)
         }
         fetchData();
-    }, [])
+    }, [texts])
 
 
     return (
         <div>
-            <div>
-                <p>Olá, <span style={{color: "#4bc0c0", fontWeight: 800}}>{user.name}!</span> Escolha um texto para ler</p>
-            </div>
-            <ul className="card-list">
+            <header>
+                <p>Olá, <span style={{color: "#4bc0c0", fontWeight: 800}}>{user.name}</span>! Escolha um texto para ler</p>
+            </header>
+            {texts.length > 0 && <CardList data={texts} /> }
+            {/* <ul className="card-list">
                 {texts?.map((elem) => {
                     const currTextStatus = [...user.readTexts?.filter(e => e.textId == elem.id)]
                     return (
@@ -59,7 +61,7 @@ function Home() {
                 }
 
                 )}
-            </ul>
+            </ul> */}
         </div>
     )
 

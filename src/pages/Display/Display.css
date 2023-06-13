@@ -53,3 +53,14 @@
     color: #4bc0c0;
     border: 2px solid #4bc0c0;
 }
+
+.text-display{
+    margin: 12px;
+    padding: 6px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.text-display p {
+    align-items: center;
+}

@@ -16,15 +16,12 @@ import { useUsers } from './providers/UserProvider'
 function App() {
   const { user } = useUsers()
 
-
-
-
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={user.name ? <Home /> : <Login />} />
         <Route path="/:lang/:textId" element={<Display />} /> 
-        <Route path="/:lang/:textId/result" element={<Result />} />
+        <Route path="/:lang/result" element={<Result />} />
       </Routes>
     </div>
   );
