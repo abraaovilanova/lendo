@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/lendo/static/css/main.b88411e9.css",
-    "main.js": "/lendo/static/js/main.e7ee555b.js",
+    "main.css": "/lendo/static/css/main.373f91ae.css",
+    "main.js": "/lendo/static/js/main.0b143f3e.js",
     "index.html": "/lendo/index.html",
-    "main.b88411e9.css.map": "/lendo/static/css/main.b88411e9.css.map",
-    "main.e7ee555b.js.map": "/lendo/static/js/main.e7ee555b.js.map"
+    "main.373f91ae.css.map": "/lendo/static/css/main.373f91ae.css.map",
+    "main.0b143f3e.js.map": "/lendo/static/js/main.0b143f3e.js.map"
   },
   "entrypoints": [
-    "static/css/main.b88411e9.css",
-    "static/js/main.e7ee555b.js"
+    "static/css/main.373f91ae.css",
+    "static/js/main.0b143f3e.js"
   ]
 }
