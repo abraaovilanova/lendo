@@ -37,7 +37,7 @@ function Home() {
             setTexts(texts)
         }
         fetchData();
-    }, [texts])
+    }, [])
 
 
     return (

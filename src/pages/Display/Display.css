@@ -47,12 +47,17 @@
     color: #fff;
 }
 
-.continue-btn:hover{
+.continue-btn:hover:enabled{
     cursor: pointer;
     background: #fff;
     color: #4bc0c0;
     border: 2px solid #4bc0c0;
 }
+
+.continue-btn:disabled{
+    background-color: rgb(189, 189, 189);
+}
+
 
 .text-display{
     margin: 12px;

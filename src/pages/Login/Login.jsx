@@ -21,7 +21,7 @@ function Login() {
                 value={name} 
                 onChange={handleOnChange} 
                 type="text" />
-            <button className="continue-btn" onClick={() => setUserName(name)}>Continuar</button>
+            <button disabled={!name} className="continue-btn" onClick={() => setUserName(name)}>Continuar</button>
         </div>
     )
 }

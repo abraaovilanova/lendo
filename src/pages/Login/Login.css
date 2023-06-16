@@ -19,3 +19,7 @@
     border-radius: 12px;
     border: 1px solid #4bc0c1
 }
+
+.name-input:focus-visible{
+    outline: 2px solid #4bc0c1;
+}
