@@ -12,9 +12,18 @@ import Login from './pages/Login/Login';
 import Result from './pages/Result';
 
 import { useUsers } from './providers/UserProvider'
+import { useEffect } from 'react';
 
 function App() {
-  const { user } = useUsers()
+  const { user, getLocalStorageUser } = useUsers()
+
+  useEffect(()=>{
+    // if not user in context get user from localstorage if exist
+    if(!user?.name){
+     getLocalStorageUser()
+    }
+
+  },[])
 
   return (
     <div className="App">

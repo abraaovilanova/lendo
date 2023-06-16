@@ -22,7 +22,7 @@ const defaultTextStatus = {
 
 
 function Display() {
-    const [hearts, setHearts] = useState(5)
+    const [hearts, setHearts] = useState(3)
     const navigate = useNavigate();
     const [textDoc, setTextDoc] = useState("")
     const [textStatus, setTextStatus] = useState(defaultTextStatus)

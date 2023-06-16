@@ -7,10 +7,11 @@ import './Login.css'
 function Login() {
 
     const [name, setName] = useState("")
-    const { setUserName } = useUsers()
+    const { setUserName, setUserLocalStorage  } = useUsers()
 
     function handleOnChange(e) {
         setName(e.target.value)
+        setUserLocalStorage(e.target.value)
     }
 
     return (
