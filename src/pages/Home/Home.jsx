@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { useParams, useNavigate } from "react-router-dom";
-
 import { useUsers } from '../../providers/UserProvider'
 
 
@@ -16,13 +14,11 @@ import './Home.css'
 
 
 // COMPONENTS
-import Card from '../../components/Card'
 import CardList from '../../components/CardList';
 
 function Home() {
     const [texts, setTexts] = useState([])
-    const { user, setUserName } = useUsers()
-    const navigate = useNavigate();
+    const { user } = useUsers()
 
 
     useEffect(() => {
@@ -42,26 +38,10 @@ function Home() {
 
     return (
         <div>
-            <header>
-                <p>Olá, <span style={{color: "#4bc0c0", fontWeight: 800}}>{user.name}</span>! Escolha um texto para ler</p>
+            <header className="main-text">
+                <p>Olá, <span style={{color: "#4bc0c0", fontWeight: 800}}>{user.name}</span>! <br/>Escolha um texto para ler</p>
             </header>
             {texts.length > 0 && <CardList data={texts} /> }
-            {/* <ul className="card-list">
-                {texts?.map((elem) => {
-                    const currTextStatus = [...user.readTexts?.filter(e => e.textId == elem.id)]
-                    return (
-                        <Card
-                            title={elem.title}
-                            level={elem.level}
-                            progress={currTextStatus.length ? (currTextStatus[0].correctAnswers) / (currTextStatus[0].textLength) : 0}
-                            key={elem.id}
-                            handleOnClick={() => navigate(`/fr/${elem.id}`)}
-                        />
-                    )
-                }
-
-                )}
-            </ul> */}
         </div>
     )
 

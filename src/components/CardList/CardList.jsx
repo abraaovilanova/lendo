@@ -26,7 +26,7 @@ function CardList({ data }) {
                     <div>
                         <h3>{filter}</h3>
                          <ul>
-                            {data.filter(textDoc => textDoc.level === filter).map(elem => {
+                            {data?.filter(textDoc => textDoc.level === filter).map(elem => {
                             const currTextStatus = [...user.readTexts?.filter(e => e.textId == elem.id)]
                             return (<Card 
                                                                                                 title={elem.title} 
