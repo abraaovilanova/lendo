@@ -64,6 +64,10 @@
     padding: 6px;
     font-size: 24px;
     font-weight: 500;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .text-display p {

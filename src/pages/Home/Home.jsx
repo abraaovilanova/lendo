@@ -37,7 +37,7 @@ function Home() {
 
 
     return (
-        <div>
+        <div className="home">
             <header className="main-text">
                 <p>Olá, <span style={{color: "#4bc0c0", fontWeight: 800}}>{user.name}</span>! <br/>Escolha um texto para ler</p>
             </header>
